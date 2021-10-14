@@ -49,8 +49,8 @@ jobs:
       - name: go sus
         run: |
           mkdir crystal
-          cp bin/* crystal/
-          cp libs/* crystal/
+          cp ../bin/* crystal/
+          cp ../libs/* crystal/
       - name: Upload Crystal binaries
         uses: actions/upload-artifact@v2
         with:

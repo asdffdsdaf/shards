@@ -41,6 +41,12 @@ jobs:
       - name: Build
         run: make
 
+      - name: Run specs
+        run: make test
+
+      - name: Check formatting
+        run: crystal tool format --check src spec
+
       - name: go sus
         run: |
           mkdir crystal
@@ -50,9 +56,3 @@ jobs:
         with:
           name: crystal
           path: crystal
-
-      - name: Run specs
-        run: make test
-
-      - name: Check formatting
-        run: crystal tool format --check src spec

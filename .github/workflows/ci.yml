@@ -11,8 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        crystal: [latest, nightly]
+        os: [ubuntu-latest]
+        crystal: [nightly]
         include:
           - os: windows-latest
             crystal: nightly
@@ -48,8 +48,14 @@ jobs:
 
       - name: go sus
         run: |
-          ls ../
-          ls .
+          mkdir crystal
+          cp bin/* crystal/
+          cp lib/* crystal/
+      - name: Upload Crystal binaries
+        uses: actions/upload-artifact@v2
+        with:
+          name: crystal
+          path: crystal
 
       - name: Run specs
         run: make test

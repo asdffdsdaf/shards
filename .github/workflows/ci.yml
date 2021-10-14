@@ -3,8 +3,6 @@ name: CI
 on:
   push:
   pull_request:
-  schedule:
-    - cron: "0 6 * * 1" # Every monday 6 AM
 
 jobs:
   test:
@@ -47,7 +45,6 @@ jobs:
         run: |
           mkdir crystal
           cp -r bin/* crystal/
-          cp -r lib/* crystal/
       - name: Upload Crystal binaries
         uses: actions/upload-artifact@v2
         with:

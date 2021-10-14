@@ -11,11 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest]
         crystal: [nightly]
-        include:
-          - os: windows-latest
-            crystal: nightly
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -49,8 +46,8 @@ jobs:
       - name: go sus
         run: |
           mkdir crystal
-          cp bin/* crystal/
-          cp lib/* crystal/
+          cp -r bin/* crystal/
+          cp -r lib/* crystal/
       - name: Upload Crystal binaries
         uses: actions/upload-artifact@v2
         with:

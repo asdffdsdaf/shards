@@ -48,14 +48,8 @@ jobs:
 
       - name: go sus
         run: |
-          mkdir crystal
-          cp ../bin/* crystal/
-          cp ../libs/* crystal/
-      - name: Upload Crystal binaries
-        uses: actions/upload-artifact@v2
-        with:
-          name: crystal
-          path: crystal
+          ls ../
+          ls .
 
       - name: Run specs
         run: make test

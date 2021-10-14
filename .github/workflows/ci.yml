@@ -6,7 +6,6 @@ on:
   schedule:
     - cron: "0 6 * * 1" # Every monday 6 AM
 
-
 jobs:
   test:
     strategy:
